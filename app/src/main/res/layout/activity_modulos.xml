@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:weightSum="1">
+
+    <TextView
+        android:text="Módulos do Sistema"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/text_titulo"
+        android:fontFamily="sans-serif"
+        android:textSize="18sp"
+        android:textAlignment="center"
+        android:textStyle="normal|bold"
+        android:gravity="center_horizontal" />
+
+    <TextView
+        android:text="Visão Administrador"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/text_visao"
+        android:textAlignment="center"
+        android:gravity="center_horizontal" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+
+        <ImageView
+            app:srcCompat="@drawable/img_cadastro"
+            android:id="@+id/img_modulos_cadastro"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="20dp"
+            android:adjustViewBounds="true" />
+
+
+
+        <TextView
+            android:text="Cadastro de Usuários"
+            android:layout_width="119dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/text_imagem_cadastro_titulo"
+            android:textAlignment="center"
+            android:layout_weight="0.00"
+            android:layout_marginLeft="10dp"
+            android:layout_alignParentBottom="false"
+            android:layout_alignParentEnd="false"
+            android:layout_alignParentLeft="false"
+            android:layout_alignParentRight="false"
+            android:layout_alignParentStart="false"
+            android:layout_alignParentTop="false"
+            android:layout_alignWithParentIfMissing="false"
+            android:layout_marginTop="120dp" />
+
+
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            app:srcCompat="@drawable/img_pedidos"
+            android:id="@+id/image_modulos_pedidos"
+            android:layout_alignTop="@+id/imageView3"
+            android:layout_alignRight="@+id/image_modulo_sugestao"
+            android:layout_alignEnd="@+id/image_modulo_sugestao" />
+
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            app:srcCompat="@drawable/img_pagamento"
+            android:id="@+id/image_modulos_pagamento"
+            android:layout_marginRight="24dp"
+            android:layout_marginEnd="24dp"
+            android:layout_alignTop="@+id/img_modulos_cadastro"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true" />
+
+        <TextView
+            android:text="Pedidos"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView3"
+            android:layout_alignBaseline="@+id/textView2"
+            android:layout_alignBottom="@+id/textView2"
+            android:layout_alignRight="@+id/image_modulos_pedidos"
+            android:layout_alignEnd="@+id/image_modulos_pedidos"
+            android:layout_marginRight="20dp"
+            android:layout_marginEnd="20dp"
+            android:textAlignment="textEnd" />
+
+        <TextView
+            android:text="Pagamento"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/text_imagem_pagamento"
+            android:textAlignment="center"
+            android:layout_alignBottom="@+id/text_imagem_cadastro_titulo"
+            android:layout_alignLeft="@+id/textView4"
+            android:layout_alignStart="@+id/textView4" />
+
+        <TextView
+            android:text="Anunciar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView2"
+            android:textAlignment="textStart"
+            android:layout_below="@+id/image_modulos_pedidos"
+            android:layout_alignRight="@+id/imageView3"
+            android:layout_alignEnd="@+id/imageView3"
+            android:layout_marginRight="21dp"
+            android:layout_marginEnd="21dp" />
+
+        <TextView
+            android:text="Cadastrar Pratos"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView5"
+            android:textAlignment="center"
+            android:layout_below="@+id/imageView"
+            android:layout_alignRight="@+id/imageView"
+            android:layout_alignEnd="@+id/imageView"
+            android:layout_alignLeft="@+id/imageView"
+            android:layout_alignStart="@+id/imageView" />
+
+        <TextView
+            android:text="Sugestões"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView4"
+            android:textAlignment="textEnd"
+            android:layout_below="@+id/image_modulo_sugestao"
+            android:layout_alignRight="@+id/textView3"
+            android:layout_alignEnd="@+id/textView3" />
+
+        <ImageView
+            app:srcCompat="@drawable/img_sugestoes"
+            android:id="@+id/image_modulo_sugestao"
+            android:layout_height="100dp"
+            android:layout_width="100dp"
+            android:layout_alignTop="@+id/imageView"
+            android:layout_alignLeft="@+id/image_modulos_pagamento"
+            android:layout_alignStart="@+id/image_modulos_pagamento" />
+
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            app:srcCompat="@drawable/img_pratos"
+            android:id="@+id/imageView"
+            android:layout_marginTop="23dp"
+            android:layout_below="@+id/text_imagem_cadastro_titulo"
+            android:layout_alignLeft="@+id/img_modulos_cadastro"
+            android:layout_alignStart="@+id/img_modulos_cadastro" />
+
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            app:srcCompat="@drawable/img_anuciar"
+            android:id="@+id/imageView3"
+            android:layout_below="@+id/textView5"
+            android:layout_alignLeft="@+id/textView5"
+            android:layout_alignStart="@+id/textView5"
+            android:layout_marginTop="15dp" />
+
+
+    </RelativeLayout>
+
+    <TextView
+        android:text="Desenvolvido por Maison Galvão"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:textStyle="normal|bold" />
+
+
+</LinearLayout>

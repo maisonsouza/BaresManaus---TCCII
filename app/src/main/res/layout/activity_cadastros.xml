@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent">
+
+
+<LinearLayout
+    android:id="@+id/activity_cadastros"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:layout_margin="10dp"
+    tools:context="com.maiso.baresmanaus.Cadastros"
+    android:weightSum="1">
+
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:hint="Nome Completo"
+        android:id="@+id/editText_nome"
+        android:layout_alignParentRight="true"
+        android:layout_toRightOf="@+id/text_nome"
+        android:layout_toEndOf="@+id/text_nome"
+        android:layout_marginTop="10dp" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:hint="Usuário"
+        android:id="@+id/editText_usuario"
+        android:layout_alignParentRight="true"
+        android:layout_toRightOf="@+id/text_nome"
+        android:layout_toEndOf="@+id/text_nome"
+        android:layout_marginTop="10dp" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textPassword"
+        android:ems="10"
+        android:hint="Senha"
+        android:id="@+id/editTextsenha"
+        android:layout_marginTop="10dp" />
+
+    <Spinner
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/spinner"
+        android:layout_marginTop="10dp"
+        android:prompt="@string/hint_combobox"
+        android:spinnerMode="dialog" />
+
+    <Button
+        android:text="Cadastrar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/botaoCadastrar"
+        android:layout_gravity="bottom"
+        android:layout_marginTop="180dp"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:elevation="0dp"
+        android:textAlignment="center"
+        android:visibility="visible" />
+
+
+</LinearLayout>
+</ScrollView>

@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">IfaMenu</string>
+
+    <!-- Strings related to login -->
+    <string name="prompt_username">Usuário</string>
+    <string name="prompt_password">Senha(Obrigatória)</string>
+    <string name="action_sign_in">Acessar</string>
+    <string name="action_sign_in_short">Login</string>
+    <string name="error_invalid_password">A senha é muito curta</string>
+    <string name="error_incorrect_password">A senha está incorreta</string>
+    <string name="error_field_required">O campo é obrigatório</string>
+    <string name="title_activity_modulos">Módulos</string>
+    <string name="hint_combobox"> Escolhe </string>
+
+    <string-array name="Tipos_de_Usuarios" hint="Tipos">
+        <item>Administrador</item>
+        <item>Gerente</item>
+        <item>Funcionário</item>
+    </string-array>
+</resources>
