@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/activity_sugestoes">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+
+        <ImageView
+        app:srcCompat="@drawable/img_sugestoes"
+        android:id="@+id/imageView2"
+        android:scaleType="fitCenter"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+            android:layout_width="100dp"
+            android:layout_height="100dp" />
+
+        <Button
+            android:text="Enviar"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/botao_enviar_sugestao"
+            android:layout_weight="1"
+            android:elevation="0dp"
+            android:textAlignment="center"
+            android:background="@android:color/holo_green_dark"
+            android:textStyle="normal|bold"
+            android:textAllCaps="false"
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:textSize="24sp"
+            android:layout_below="@+id/nota_feedback"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_margin="5dp" />
+
+        <RatingBar
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:id="@+id/nota_feedback"
+            android:numStars="5"
+            android:max="10"
+            android:layout_marginTop="5dp"
+            android:layout_below="@+id/caixa_de_texto_sugestao"
+            android:layout_centerHorizontal="true" />
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:id="@+id/caixa_de_texto_sugestao"
+            android:layout_height="150dp"
+            android:background="@color/common_google_signin_btn_text_light_disabled"
+            android:layout_marginTop="5dp"
+            android:layout_below="@+id/text_sugestao"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true">
+
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textMultiLine"
+                android:ems="10"
+                android:id="@+id/texto_da_sugestao"
+                android:layout_weight="1" />
+        </android.support.design.widget.TextInputLayout>
+
+        <TextView
+            android:text="Deixe aqui seu feedback:"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/text_sugestao"
+            android:textStyle="normal|bold"
+            android:elevation="1dp"
+            android:layout_marginTop="225dp" />
+
+        <TextView
+            android:text="Usuario:"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/usuario_ativo"
+            android:layout_above="@+id/caixa_de_texto_sugestao"
+            android:layout_alignLeft="@+id/botao_enviar_sugestao"
+            android:layout_alignStart="@+id/botao_enviar_sugestao"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="65dp" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:text="Name"
+            android:ems="10"
+            android:id="@+id/editText_autor_da_sugestao"
+            android:layout_marginLeft="55dp"
+            android:layout_marginTop="145dp" />
+
+
+    </RelativeLayout>
+
+
+
+</ScrollView>
+

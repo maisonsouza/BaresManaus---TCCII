@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/text_sugestao_autor"
+        android:textStyle="normal|bold"
+        android:text="Autor"
+        android:textSize="18sp"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/txt_sugestao"
+        android:text="Sugestão"
+        android:layout_below="@+id/text_sugestao_autor"
+        android:layout_alignLeft="@+id/data_da_sugestao"
+        android:layout_alignStart="@+id/data_da_sugestao"
+        android:layout_marginTop="10dp"
+        android:layout_margin="10dp" />
+
+    <RatingBar
+        android:id="@+id/nota_formulario_sugestao"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:numStars="5"
+        android:max="10"
+        android:layout_alignLeft="@+id/txt_sugestao"
+        android:layout_alignStart="@+id/txt_sugestao"
+        android:layout_below="@+id/txt_sugestao" />
+
+</RelativeLayout>

@@ -2,6 +2,7 @@
 
 
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_height="match_parent"
     android:layout_width="match_parent">
@@ -16,13 +17,59 @@
     tools:context="com.maiso.baresmanaus.Cadastros"
     android:weightSum="1">
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="225dp">
+
+        <ImageView
+            android:id="@+id/cadastro_formulario_foto"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:src="@drawable/person"
+            android:background="#00A8EC"/>
+
+        <Button
+            android:id="@+id/formulario_botao_adicionar_imagem"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:text=""
+            android:textColor="#ffffff"
+            android:textSize="40sp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="16dp"
+            android:background="@drawable/fundo_camera" />
+
+        <android.support.design.widget.FloatingActionButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            app:fabSize="mini"
+            app:srcCompat="@drawable/ic_action_galeria"
+            android:id="@+id/floatingActionButton_galeria"
+            android:layout_alignParentBottom="true"
+            android:layout_toLeftOf="@+id/formulario_botao_adicionar_imagem"
+            android:layout_toStartOf="@+id/formulario_botao_adicionar_imagem"
+            android:layout_marginRight="13dp"
+            android:layout_marginEnd="13dp"
+            app:backgroundTint="@android:color/holo_green_dark" />
+
+    </RelativeLayout>
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/informa_tipo"
+        android:textStyle="normal|bold"
+        android:textAlignment="center" />
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
         android:hint="Nome Completo"
-        android:id="@+id/editText_nome"
+        android:id="@+id/cadastro_nome"
         android:layout_alignParentRight="true"
         android:layout_toRightOf="@+id/text_nome"
         android:layout_toEndOf="@+id/text_nome"
@@ -33,7 +80,7 @@
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
         android:hint="Usuário"
-        android:id="@+id/editText_usuario"
+        android:id="@+id/cadastro_usuario"
         android:layout_alignParentRight="true"
         android:layout_toRightOf="@+id/text_nome"
         android:layout_toEndOf="@+id/text_nome"
@@ -45,24 +92,38 @@
         android:inputType="textPassword"
         android:ems="10"
         android:hint="Senha"
-        android:id="@+id/editTextsenha"
+        android:id="@+id/cadastro_senha"
         android:layout_marginTop="10dp" />
 
     <Spinner
+        android:layout_height="wrap_content"
+        android:id="@+id/seletor_tipo_usuario"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:foregroundGravity="center"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:text="Alterar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/spinner"
-        android:layout_marginTop="10dp"
-        android:prompt="@string/hint_combobox"
-        android:spinnerMode="dialog" />
+        android:id="@+id/botao_alterar"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_gravity="bottom"
+        android:visibility="invisible"
+        android:textAlignment="center"
+        android:background="@color/colorPrimaryDark"
+        android:layout_marginTop="20dp"
+        android:textSize="18sp" />
 
     <Button
         android:text="Cadastrar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/botaoCadastrar"
+        android:id="@+id/botao_Cadastrar"
         android:layout_gravity="bottom"
-        android:layout_marginTop="180dp"
+        android:layout_marginBottom="20dp"
         style="@style/Widget.AppCompat.Button.Colored"
         android:elevation="0dp"
         android:textAlignment="center"

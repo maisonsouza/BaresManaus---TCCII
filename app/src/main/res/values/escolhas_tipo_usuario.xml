@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="xml_tipos_usuarios">
+        <item>Dono do Estabelecimento</item>
+        <item>Gerente</item>
+        <item>Funcionário - Garçom</item>
+        <item>Funcionário - Cozinha</item>
+        <item>Funcionário - Caixa</item>
+        <item>Cliente</item>
+        <item>Desenvolvedor</item>
+    </string-array>
+</resources>

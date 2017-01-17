@@ -1,12 +1,34 @@
 package com.maiso.baresmanaus.modelo;
 
+import java.io.Serializable;
+import java.util.List;
+
 /**
  * Created by maiso on 10/11/2016.
  */
 
-public class Usuarios {
+public class Usuarios implements Serializable{
+
+
+
 
     private Long id;
+    private String nome;
+    private String usuario;
+    private String senha;
+    private String tipo_de_usuario;
+    private List usuarios;
+    private String foto;
+
+
+
+    public List getUsuarios() {
+        return usuarios;
+    }
+
+    public void setUsuarios(List usuarios) {
+        this.usuarios = usuarios;
+    }
 
     public Long getId() {
         return id;
@@ -15,11 +37,6 @@ public class Usuarios {
     public void setId(Long id) {
         this.id = id;
     }
-
-    private String nome;
-    private String usuario;
-    private String senha;
-    private String tipo_de_usuario;
 
     public String getNome() {
         return nome;
@@ -52,4 +69,18 @@ public class Usuarios {
     public void setTipo_de_usuario(String tipo_de_usuario) {
         this.tipo_de_usuario = tipo_de_usuario;
     }
+
+    public String getFoto() {
+        return foto;
+    }
+
+    public void setFoto(String foto) {
+        this.foto = foto;
+    }
+
+    @Override
+    public String toString() {
+        return "  "+id+"          -|-      "+nome+"       -|-       "+usuario;
+    }
+
 }
