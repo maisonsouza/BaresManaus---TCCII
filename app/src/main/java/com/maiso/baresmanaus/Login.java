@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
+import android.text.method.PasswordTransformationMethod;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -16,22 +17,23 @@ import com.maiso.baresmanaus.modelo.Usuarios;
 
 import java.util.List;
 
-public class Login extends AppCompatActivity {
 
-    // UI references.
+public class Login extends AppCompatActivity {
+    // Referências da Interface do usuário.
     private EditText mUsernameView;
     private EditText mPasswordView;
-    private View mProgressView;
-    private View mLoginFormView;
     private Button mBotaoLogin;
     private String password;
     private String username;
     private DBHelper dbhelper;
+    private boolean cancel;
+    private View foco;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
         dbhelper = new DBHelper(this);
 
         // formulario de login
@@ -39,61 +41,89 @@ public class Login extends AppCompatActivity {
         mPasswordView = (EditText) findViewById(R.id.password);
         mBotaoLogin = (Button) findViewById(R.id.botao_login);
         mBotaoLogin.setOnClickListener(new OnClickListener() {
+
             @Override
             public void onClick(View view) {
-
-
                 verificaLogin();
-
             }
         });
     }
 
     private void verificaLogin() {
+        //Foco da tela
+        cancel = false;
+        foco = null;
+        if (cancel) {
+            foco.requestFocus();
+        }
 
-        //reset errors
+        //Apaga erros do formulário
         mUsernameView.setError(null);
         mPasswordView.setError(null);
 
-
-        // Store values at the time of the login attempt.
+        // Armazenar os valores do login
         username = mUsernameView.getText().toString();
         password = mPasswordView.getText().toString();
 
-        boolean cancel = false;
-        View focusView = null;
+        // Check usuario vazio
+        checkUsuarioVazio(username);
 
-        // Check senha válida
-        if (TextUtils.isEmpty(password) || !isPasswordValid(password)) {
-            mPasswordView.setError(getString(R.string.error_invalid_password));
-            focusView = mPasswordView;
-            cancel = true;
+
+        // Check senha vazia
+        checkSenhaVazia(password);
+
+
+        //Check senha inválida(menor que 4 caracteres)
+        isSenhaValida(password);
+
+        mUsernameView.setError(null);
+        mPasswordView.setError(null);
+        //Check campos vazios
+        if(!checkUsuarioVazio(username) && !checkSenhaVazia(password) && isSenhaValida(password) ){
+            // verifica se login está cadastrado no banco
+            if (estaCadastrado(username, password)) {
+                Intent vaipraModulos = new Intent(this, Modulos.class);
+                vaipraModulos.putExtra("login", username);
+                startActivity(vaipraModulos);
+            }else{
+                Toast.makeText(this,"usuário não cadastrado",Toast.LENGTH_LONG).show();
+            }
         }
 
-        // Check username vazio
-        if (TextUtils.isEmpty(username)) {
+    }
+
+    //Método: Check usuario vazio
+    private boolean checkUsuarioVazio(String username) {
+        if(TextUtils.isEmpty(username)){
             mUsernameView.setError(getString(R.string.error_field_required));
-            focusView = mUsernameView;
+            foco = mUsernameView;
             cancel = true;
+            return true;
         }
-        if (cancel) {
-            focusView.requestFocus();
-        } else if (estaCadastrado(username, password)) {
-            Intent vaipraModulos = new Intent(Login.this, Modulos.class);
-            vaipraModulos.putExtra("login", username);
-            startActivity(vaipraModulos);
-
-
-        } else {
-            Toast.makeText(Login.this, "Usuário ou Senha INCORRETOS", Toast.LENGTH_LONG).show();
-        }
+       return false;
     }
 
-
-    private boolean isPasswordValid(String password) {
-        return password.length() > 4;
+    //Método: Check senha vazia
+    private boolean checkSenhaVazia(String password) {
+        if(TextUtils.isEmpty(password)){
+            mPasswordView.setError(getString(R.string.error_field_required));
+            return true;
+        }
+        return false;
     }
 
+    //Método: verifica se a senha é maior que 4 caracteres
+    private boolean isSenhaValida(String password) {
+        if (password.length() < 4) {
+            mPasswordView.setError(getString(R.string.error_invalid_password));
+            foco = mPasswordView;
+            cancel = true;
+            return false;
+        }
+        return true;
+    }
+
+    //Método: verifica se está cadastrado no banco
     protected Boolean estaCadastrado(String username, String password) {
         UsuarioDAO dao = new UsuarioDAO(dbhelper);
         List<Usuarios> usuariosdoBanco = dao.buscaUsuarios();
