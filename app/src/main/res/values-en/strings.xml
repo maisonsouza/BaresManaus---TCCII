@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Strings relativas ao login -->
+    <string name="Mensagem_inicial">Welcome and good appetite</string>
+    <string name="Usuario">User</string>
+    <string name="Campo_Obrigatorio">The field is required</string>
+    <string name="Senha">Password</string>
+    <string name="Senha_invalida">The Password cannot be very short (Minnimun of 4 Characers)</string>
+    <string name="Acessar">Acess</string>
+    <string name="Desenvolvedor">Developed by Maison Galvão</string>
+
+
+    <!-- Strings relativas aos módulos -->
+    <string name="User">User</string>
+    <string name="Modulos_do_sistema">System Modules</string>
+    <string name="Visao_administrador">View Administrator</string>
+
+    <string name="Cadastro_de_usuarios">Register User</string>
+    <string name="Pagamento">Payment</string>
+    <string name="Cadastrar_pratos">Register Plates</string>
+    <string name="Sugestoes">Sugestions</string>
+    <string name="Anunciar">Announce</string>
+    <string name="Pedidos">Request</string>
+
+</resources>

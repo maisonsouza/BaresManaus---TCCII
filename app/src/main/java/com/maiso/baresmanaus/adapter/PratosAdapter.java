@@ -6,8 +6,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.ftinc.kit.adapter.BetterRecyclerAdapter;
 import com.maiso.baresmanaus.R;
-import com.maiso.baresmanaus.modelo.AndroidOS;
+import com.maiso.baresmanaus.modelo.Pratos;
 
 
 import butterknife.BindView;
@@ -16,7 +17,7 @@ import butterknife.ButterKnife;
 /**
  * Created by r0adkll on 1/11/15.
  */
-public class OSVersionAdapter extends BetterRecyclerAdapter<AndroidOS, OSVersionAdapter.OSViewHolder> {
+public class PratosAdapter extends BetterRecyclerAdapter<Pratos, PratosAdapter.OSViewHolder> {
 
 
     @Override
@@ -29,9 +30,9 @@ public class OSVersionAdapter extends BetterRecyclerAdapter<AndroidOS, OSVersion
     @Override
     public void onBindViewHolder(OSViewHolder viewHolder, int i) {
         super.onBindViewHolder(viewHolder, i);
-        AndroidOS os = getItem(i);
-        viewHolder.title.setText(os.nome_produto);
-        viewHolder.description.setText(os.description);
+        Pratos pratos = getItem(i);
+        viewHolder.title.setText(pratos.nome_prato);
+        viewHolder.description.setText(pratos.descricao);
     }
 
     public static class OSViewHolder extends RecyclerView.ViewHolder{

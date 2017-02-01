@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:layout_width="match_parent"
+            app:srcCompat="@drawable/imgm_prato"
+            android:id="@+id/imgm_cadastro_pratos"
+            android:layout_height="200dp"
+            android:background="?android:attr/colorBackgroundFloating" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_below="@+id/imgm_cadastro_pratos"
+            android:layout_marginEnd="16dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginBottom="16dp"
+            android:layout_marginTop="16dp">
+
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:text="Nome do Prato"
+                android:ems="10"
+                android:id="@+id/edt_nome_prato" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="numberSigned"
+                android:ems="10"
+                android:id="@+id/edt_preco"
+                android:text="Preço" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textMultiLine"
+                android:ems="10"
+                android:id="@+id/edt_descricao"
+                android:text="Descrição do Prato" />
+
+            <Spinner
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/spnnr_tipo_alimento" />
+
+            <Button
+                android:text="Cadastrar Prato"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/button2"
+                android:layout_centerHorizontal="false"
+                android:layout_alignParentBottom="false"
+                android:layout_toLeftOf="@+id/spnnr_tipo_alimento"
+                android:layout_marginTop="16dp"
+                android:textAppearance="@android:style/TextAppearance.Material.Widget.Button"
+                style="@style/Widget.AppCompat.Button.Colored"
+                android:textColorLink="@color/yellow_a200"
+                android:textColor="@color/white99"
+                android:elevation="1dp"
+                android:background="@color/amber_800"
+                android:textSize="18sp" />
+
+        </LinearLayout>
+
+        <android.support.design.widget.FloatingActionButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            app:fabSize="normal"
+            app:srcCompat="@android:drawable/ic_menu_gallery"
+            android:id="@+id/floatingActionButton"
+            android:layout_gravity="right"
+            android:layout_marginEnd="17dp"
+            app:backgroundTint="?attr/colorPrimaryDark"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="170dp" />
+
+    </RelativeLayout>
+
+
+    </ScrollView>

@@ -1,27 +1,22 @@
 package com.maiso.baresmanaus;
 
 
-import android.graphics.drawable.ColorDrawable;
-import android.os.Build;
 import android.os.Bundle;
-import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
-import com.maiso.baresmanaus.modelo.AndroidOS;
+import com.ftinc.kit.util.Utils;
+import com.ftinc.kit.widget.AspectRatioImageView;
+import com.maiso.baresmanaus.modelo.Pratos;
 import com.r0adkll.slidr.Slidr;
 import com.r0adkll.slidr.model.SlidrConfig;
 import com.r0adkll.slidr.model.SlidrPosition;
-import com.ftinc.kit.util.Utils;
-import com.ftinc.kit.widget.AspectRatioImageView;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import butterknife.OnClick;
 /**
  * Created by maiso on 14/01/2017.
  */
@@ -47,7 +42,7 @@ public class ViewerActivity extends AppCompatActivity {
     @BindView(R.id.position)
     TextView mPosition;
 
-    private AndroidOS mOS;
+    private Pratos mOS;
     private SlidrConfig mConfig;
 
     @Override
@@ -85,8 +80,8 @@ public class ViewerActivity extends AppCompatActivity {
         if(savedInstanceState != null) mOS = savedInstanceState.getParcelable(EXTRA_OS);
 
         // Set layout contents
-        mTitle.setText(mOS.nome_produto);
-        mDescription.setText(mOS.description);
+        mTitle.setText(mOS.nome_prato);
+        mDescription.setText(mOS.descricao);
         mDate.setText(String.valueOf(mOS.year));
         mVersion.setText(mOS.preço);
         mSdk.setText(String.valueOf(mOS.sdk_int));

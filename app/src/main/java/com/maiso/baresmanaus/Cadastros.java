@@ -3,8 +3,11 @@ package com.maiso.baresmanaus;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
+import android.support.v4.view.MenuItemCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.SearchView;
 import android.view.ContextMenu;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
@@ -22,31 +25,36 @@ public class Cadastros extends AppCompatActivity {
 
     private DBHelper dbhelper;
     private Usuarios usuario;
-    private ListView listagem;
+    private ListView listagem,listagem_pesquisados;
+    private FloatingActionButton botaoflutuanteCadastrar;
+    private Intent vai_pro_Formulario_cadastro;
+    private SearchView pesquisar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.usuarioscadastrados);
-
+        setContentView(R.layout.usuarios_cadastrados);
         carregaLista();
+
+        botaoflutuanteCadastrar = (FloatingActionButton) findViewById(R.id.fltng_actn_bttn_adicionar);
 
         listagem.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> lista, View item, int position, long id) {
-                Usuarios usuario = (Usuarios) lista.getItemAtPosition(position);
-                Intent vaiproFormulario = new Intent(Cadastros.this, Formulario_Cadastro_Usuario.class);
-                vaiproFormulario.putExtra("usuario", usuario);
-                startActivity(vaiproFormulario);
+                usuario = (Usuarios) lista.getItemAtPosition(position);
+                vai_pro_Formulario_cadastro = new Intent(Cadastros.this, Formulario_Cadastro_Usuario.class);
+                vai_pro_Formulario_cadastro.putExtra("usuario", usuario);
+                startActivity(vai_pro_Formulario_cadastro);
             }
         });
 
-        FloatingActionButton botaoflutuanteCadastrar = (FloatingActionButton) findViewById(R.id.botaoFlutuante_adicionar);
+
         botaoflutuanteCadastrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent vaiproFormularioCadastroUsuario = new Intent(Cadastros.this, Formulario_Cadastro_Usuario.class);
-                startActivity(vaiproFormularioCadastroUsuario);
+                Formulario_Cadastro_Usuario.posicao=0;
+                vai_pro_Formulario_cadastro = new Intent(Cadastros.this, Formulario_Cadastro_Usuario.class);
+                startActivity(vai_pro_Formulario_cadastro);
 
             }
         });
@@ -56,21 +64,19 @@ public class Cadastros extends AppCompatActivity {
     }
 
     private void carregaLista() {
-        listagem = (ListView) findViewById(R.id.lista_cadastrados);
+        //Prepara para consultar o banco
+        listagem = (ListView) findViewById(R.id.lst_cadastrados);
         dbhelper = new DBHelper(this);
         UsuarioDAO dao = new UsuarioDAO(dbhelper);
+        //Preenche a lista com os dados do banco
         List<Usuarios> usuarios = dao.buscaUsuarios();
         dbhelper.close();
-        //CircleImageView imagem_circular= (CircleImageView) findViewById(R.id.imagem_perfil);
-        //lista = (ListView) findViewById(R.id.lista_cadastrados);
-        //ArrayAdapter<Usuarios> adapter = new ArrayAdapter<Usuarios>(this,R.layout.foto_circular,usuarios);
         UsuarioAdapter adapter = new UsuarioAdapter(this, usuarios);
         listagem.setAdapter(adapter);
     }
 
     @Override
     protected void onResume() {
-
         carregaLista();
         super.onResume();
     }
@@ -86,8 +92,8 @@ public class Cadastros extends AppCompatActivity {
                 UsuarioDAO dao = new UsuarioDAO(dbhelper);
                 dao.deleta(usuario);
                 dbhelper.close();
-                Toast.makeText(Cadastros.this, usuario.getNome() + "Excluido com sucesso ", Toast.LENGTH_SHORT).show();
-                carregaLista();
+                //Encerra a conexão com o banco
+                Toast.makeText(Cadastros.this, usuario.getNome() + " Excluido com sucesso ", Toast.LENGTH_SHORT).show();
                 return false;
             }
         });
@@ -98,5 +104,59 @@ public class Cadastros extends AppCompatActivity {
         Intent vaiprosModulos = new Intent(Cadastros.this, Modulos.class);
         startActivity(vaiprosModulos);
     }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_opcoes, menu);
+        MenuItem itemPesquisar =  menu.findItem(R.id.item_app_bar_pesquisar);
+        MenuItemCompat.setOnActionExpandListener(itemPesquisar, new MenuItemCompat.OnActionExpandListener(){
+            @Override
+            public boolean onMenuItemActionExpand(MenuItem item) {
+                return true;
+            }
+
+            @Override
+            public boolean onMenuItemActionCollapse(MenuItem item) {
+                carregaLista();
+                return true;
+            }
+        });
+
+        pesquisar = (SearchView) menu.findItem(R.id.item_app_bar_pesquisar).getActionView();
+        pesquisar.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                listagem = (ListView) findViewById(R.id.lst_cadastrados);
+                dbhelper = new DBHelper(Cadastros.this);
+                UsuarioDAO dao = new UsuarioDAO(dbhelper);
+                //Preenche a lista com os dados do banco
+                List<Usuarios> usuarios_encontrados = dao.buscaUsuariosPeloNome(query);
+                dbhelper.close();
+                UsuarioAdapter adapter = new UsuarioAdapter(Cadastros.this, usuarios_encontrados);
+                listagem.setAdapter(adapter);
+                return true;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                return false;
+            }
+        });
+
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()){
+            case R.menu.menu_opcoes:
+                pesquisar.isShown();
+                return true;
+
+        }
+        carregaLista();
+        return super.onOptionsItemSelected(item);
+    }
+
 
 }

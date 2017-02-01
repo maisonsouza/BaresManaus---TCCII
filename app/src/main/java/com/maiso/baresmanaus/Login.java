@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
-import android.text.method.PasswordTransformationMethod;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -37,9 +36,9 @@ public class Login extends AppCompatActivity {
         dbhelper = new DBHelper(this);
 
         // formulario de login
-        mUsernameView = (EditText) findViewById(R.id.username);
-        mPasswordView = (EditText) findViewById(R.id.password);
-        mBotaoLogin = (Button) findViewById(R.id.botao_login);
+        mUsernameView = (EditText) findViewById(R.id.edt_username);
+        mPasswordView = (EditText) findViewById(R.id.edt_password);
+        mBotaoLogin = (Button) findViewById(R.id.bttn_login);
         mBotaoLogin.setOnClickListener(new OnClickListener() {
 
             @Override
@@ -95,7 +94,7 @@ public class Login extends AppCompatActivity {
     //Método: Check usuario vazio
     private boolean checkUsuarioVazio(String username) {
         if(TextUtils.isEmpty(username)){
-            mUsernameView.setError(getString(R.string.error_field_required));
+            mUsernameView.setError(getString(R.string.Campo_Obrigatorio));
             foco = mUsernameView;
             cancel = true;
             return true;
@@ -106,7 +105,7 @@ public class Login extends AppCompatActivity {
     //Método: Check senha vazia
     private boolean checkSenhaVazia(String password) {
         if(TextUtils.isEmpty(password)){
-            mPasswordView.setError(getString(R.string.error_field_required));
+            mPasswordView.setError(getString(R.string.Campo_Obrigatorio));
             return true;
         }
         return false;
@@ -115,7 +114,7 @@ public class Login extends AppCompatActivity {
     //Método: verifica se a senha é maior que 4 caracteres
     private boolean isSenhaValida(String password) {
         if (password.length() < 4) {
-            mPasswordView.setError(getString(R.string.error_invalid_password));
+            mPasswordView.setError(getString(R.string.Senha_invalida));
             foco = mPasswordView;
             cancel = true;
             return false;

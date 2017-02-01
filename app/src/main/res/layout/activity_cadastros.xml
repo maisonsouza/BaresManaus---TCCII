@@ -5,13 +5,17 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_height="match_parent"
-    android:layout_width="match_parent">
+    android:layout_width="match_parent"
+    android:paddingBottom="16dp"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
+    android:paddingTop="16dp">
 
 
 <LinearLayout
     android:id="@+id/activity_cadastros"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:orientation="vertical"
     android:layout_margin="10dp"
     tools:context="com.maiso.baresmanaus.Cadastros"
@@ -22,68 +26,64 @@
         android:layout_height="225dp">
 
         <ImageView
-            android:id="@+id/cadastro_formulario_foto"
+            android:id="@+id/imgm_cadastros_usuario_foto"
             android:layout_width="match_parent"
             android:layout_height="200dp"
             android:src="@drawable/person"
-            android:background="#00A8EC"/>
+            android:background="#00A8EC"
+            android:contentDescription="@string/Content_Descriptor_Foto_Usuario" />
 
-        <Button
-            android:id="@+id/formulario_botao_adicionar_imagem"
-            android:layout_width="56dp"
-            android:layout_height="56dp"
-            android:text=""
-            android:textColor="#ffffff"
-            android:textSize="40sp"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentRight="true"
-            android:layout_marginRight="16dp"
-            android:background="@drawable/fundo_camera" />
 
         <android.support.design.widget.FloatingActionButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:clickable="true"
             app:fabSize="mini"
-            app:srcCompat="@drawable/ic_action_galeria"
-            android:id="@+id/floatingActionButton_galeria"
-            android:layout_alignParentBottom="true"
-            android:layout_toLeftOf="@+id/formulario_botao_adicionar_imagem"
-            android:layout_toStartOf="@+id/formulario_botao_adicionar_imagem"
-            android:layout_marginRight="13dp"
+            app:srcCompat="@drawable/ic_action_pegar_galeria"
+            android:id="@+id/fltng_actn_btton_galeria"
             android:layout_marginEnd="13dp"
-            app:backgroundTint="@android:color/holo_green_dark" />
+            app:backgroundTint="@color/amber_500"
+            android:layout_alignParentBottom="true"
+            android:layout_toStartOf="@+id/fltng_actn_bttn_tirar_foto"
+            android:contentDescription="@string/Content_Descriptor_Foto_Usuario" />
+
+        <android.support.design.widget.FloatingActionButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            app:fabSize="normal"
+            app:srcCompat="@drawable/ic_acao_tirar_foto"
+            android:id="@+id/fltng_actn_bttn_tirar_foto"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="24dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/txt_informa_tipo"
+            android:textStyle="normal|bold"
+            android:textAlignment="viewStart"
+            android:layout_below="@+id/imgm_cadastros_usuario_foto"
+            android:layout_alignParentStart="true" />
 
     </RelativeLayout>
 
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/informa_tipo"
-        android:textStyle="normal|bold"
-        android:textAlignment="center" />
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
-        android:hint="Nome Completo"
-        android:id="@+id/cadastro_nome"
-        android:layout_alignParentRight="true"
-        android:layout_toRightOf="@+id/text_nome"
-        android:layout_toEndOf="@+id/text_nome"
+        android:hint="@string/Texto_Explicativo_nome_completo"
+        android:id="@+id/edt_cadastro_nome"
         android:layout_marginTop="10dp" />
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
-        android:hint="Usuário"
-        android:id="@+id/cadastro_usuario"
-        android:layout_alignParentRight="true"
-        android:layout_toRightOf="@+id/text_nome"
-        android:layout_toEndOf="@+id/text_nome"
+        android:hint="@string/Texto_Explicativo_Usuario"
+        android:id="@+id/edt_cadastro_usuario"
         android:layout_marginTop="10dp" />
 
     <EditText
@@ -91,43 +91,43 @@
         android:layout_height="wrap_content"
         android:inputType="textPassword"
         android:ems="10"
-        android:hint="Senha"
-        android:id="@+id/cadastro_senha"
+        android:hint="@string/Texto_Explicativo_senha"
+        android:id="@+id/edt_cadastro_senha"
         android:layout_marginTop="10dp" />
 
     <Spinner
-        android:layout_height="wrap_content"
-        android:id="@+id/seletor_tipo_usuario"
+        android:layout_height="match_parent"
+        android:id="@+id/spnnr_seletor_tipo_usuario"
         android:layout_marginTop="10dp"
         android:gravity="center"
         android:layout_width="match_parent"
-        android:foregroundGravity="center"
-        android:layout_centerHorizontal="true" />
+        android:spinnerMode="dialog" />
 
     <Button
-        android:text="Alterar"
+        android:text="@string/Botão_alterar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/botao_alterar"
+        android:id="@+id/bttn_alterar_usuario"
         style="@style/Widget.AppCompat.Button.Colored"
         android:layout_gravity="bottom"
         android:visibility="invisible"
         android:textAlignment="center"
         android:background="@color/colorPrimaryDark"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
         android:textSize="18sp" />
 
     <Button
-        android:text="Cadastrar"
+        android:text="@string/botão_cadastrar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/botao_Cadastrar"
+        android:layout_height="match_parent"
+        android:id="@+id/bttn_cadastrar_usuario"
         android:layout_gravity="bottom"
-        android:layout_marginBottom="20dp"
+        android:layout_marginBottom="15dp"
         style="@style/Widget.AppCompat.Button.Colored"
-        android:elevation="0dp"
+        android:elevation="1dp"
         android:textAlignment="center"
-        android:visibility="visible" />
+        android:visibility="visible"
+        android:textSize="18sp" />
 
 
 </LinearLayout>

@@ -45,9 +45,9 @@ public class UsuarioDAO  {
     }
 
     public List<Usuarios> buscaUsuarios() {
-    String sql = "SELECT * FROM Usuarios;";
+        String sql = "SELECT * FROM Usuarios;";
         SQLiteDatabase db = helper.getReadableDatabase();
-       Cursor c = db.rawQuery(sql,null);
+        Cursor c = db.rawQuery(sql,null);
         List<Usuarios> usuarioscadastrados = new ArrayList<Usuarios>();
         while(c.moveToNext()){
             Usuarios usuario = new Usuarios();
@@ -62,6 +62,26 @@ public class UsuarioDAO  {
         }
         c.close();
         return usuarioscadastrados;
+    }
+
+    public List<Usuarios> buscaUsuariosPeloNome(String nome) {
+        String sql = "SELECT * FROM "+TABELA+" WHERE nome LIKE '%"+nome+"%';";
+        SQLiteDatabase db = helper.getReadableDatabase();
+        Cursor c = db.rawQuery(sql,null);
+        List<Usuarios> usuariosencontrados = new ArrayList<Usuarios>();
+        while(c.moveToNext()){
+            Usuarios usuario = new Usuarios();
+            usuario.setId(c.getLong(c.getColumnIndex("id")));
+            usuario.setNome(c.getString(c.getColumnIndex("nome")));
+            usuario.setUsuario(c.getString(c.getColumnIndex("login")));
+            usuario.setSenha(c.getString(c.getColumnIndex("senha")));
+            usuario.setTipo_de_usuario(c.getString(c.getColumnIndex("tipo_usuario")));
+            usuario.setFoto(c.getString(c.getColumnIndex("foto")));
+
+            usuariosencontrados.add(usuario);
+        }
+        c.close();
+        return usuariosencontrados;
     }
 
     public Usuarios buscaUsuariosPeloId(Long usuario_id) {

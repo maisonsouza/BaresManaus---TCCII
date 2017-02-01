@@ -22,12 +22,17 @@ import de.hdodenhof.circleimageview.CircleImageView;
 
 public class UsuarioAdapter extends BaseAdapter {
 
+    private CircleImageView foto;
+    private TextView nome;
+    private  TextView tipo;
     private Activity activity;
-    List<Usuarios> usuarios;
+    private List<Usuarios> usuarios;
+    private Usuarios usuario;
 
     public UsuarioAdapter(Activity activity, List<Usuarios> usuarios) {
         this.activity = activity;
         this.usuarios = usuarios;
+
     }
 
     @Override
@@ -47,23 +52,23 @@ public class UsuarioAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        Usuarios usuario = usuarios.get(position);
+        usuario = usuarios.get(position);
 
         LayoutInflater inflater = activity.getLayoutInflater();
-        View linha = inflater.inflate(R.layout.foto_circular,parent, false);
+        View linha = inflater.inflate(R.layout.layout_lista_cadastrados,parent, false);
+        foto = (CircleImageView) linha.findViewById(R.id.circl_img_viw_imagem_perfil);
+        nome = (TextView) linha.findViewById(R.id.txt_nome_cadastrado);
+        tipo = (TextView) linha.findViewById(R.id.txt_tipo_cadastrado);
 
-        CircleImageView foto = (CircleImageView) linha.findViewById(R.id.imagem_perfil);
         if(usuario.getFoto()!= null){
            Bitmap bitmap = BitmapFactory.decodeFile(usuario.getFoto());
-           Bitmap imagemReduzida = Bitmap.createScaledBitmap(bitmap, 100, 100, true);
+           Bitmap imagemReduzida = Bitmap.createScaledBitmap(bitmap, 200, 200, true);
             foto.setImageBitmap(imagemReduzida);
        }
 
-        TextView nome = (TextView) linha.findViewById(R.id.nomecadastrado);
-       nome.setText(usuario.getNome());
-
-        TextView tipo = (TextView) linha.findViewById(R.id.tipocadastrado);
+        nome.setText(usuario.getNome());
         tipo.setText(usuario.getTipo_de_usuario());
+
 
         return linha;
     }

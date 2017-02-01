@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="Anunciar">Anunciar</string>
+    <string name="Acessar">Acesso</string>
+    <string name="Cadastrar_pratos">Registrar Platos</string>
+    <string name="Cadastro_de_usuarios">Registro de usuarios</string>
+    <string name="Campo_Obrigatorio">Se requiere que el campo</string>
+    <string name="Desenvolvedor">Desarrollado por Maison Galvão</string>
+    <string name="Mensagem_inicial">Bienvenido y buen apetito</string>
+    <string name="Modulos_do_sistema">Módulos del sistema</string>
+    <string name="Pagamento">Pago</string>
+    <string name="Pedidos">Solicitudes</string>
+    <string name="Senha">Contraseña</string>
+    <string name="Senha_invalida">La contraseña no puede ser demasiado cortas (mínimo 4 caracteres)</string>
+    <string name="Sugestoes">Sugerencias</string>
+    <string name="Usuario">Usuario</string>
+    <string name="Visao_administrador">Punto de vista del administrador</string>
+</resources>

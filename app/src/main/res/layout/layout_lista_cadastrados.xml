@@ -4,42 +4,45 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_height="match_parent"
-    android:layout_width="match_parent">
+    android:layout_width="match_parent"
+    android:paddingBottom="16dp"
+    android:paddingTop="16dp"
+    android:paddingRight="16dp"
+    android:paddingLeft="16dp">
 
 
     <de.hdodenhof.circleimageview.CircleImageView
 
-        android:id="@+id/imagem_perfil"
+        android:id="@+id/circl_img_viw_imagem_perfil"
         android:layout_width="80dp"
         android:cropToPadding="false"
         android:src="@drawable/imagem_padrao_contatos"
         app:civ_border_color="#FF000000"
         app:civ_border_width="2dp"
         android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_height="80dp"
-        android:layout_margin="5dp">
+        android:layout_marginBottom="5dp"
+        android:layout_marginEnd="5dp">
         </de.hdodenhof.circleimageview.CircleImageView>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/nomecadastrado"
-        android:textStyle="normal|bold"
-        android:text="Nome"
-        android:textSize="18sp"
-        android:layout_toRightOf="@+id/imagem_perfil"
-        android:layout_margin="15dp" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/tipocadastrado"
-        android:text="Tipo"
-        android:layout_toRightOf="@+id/imagem_perfil"
-        android:layout_marginTop="40dp"
-        android:layout_marginLeft="15dp" />
+        android:id="@+id/txt_nome_cadastrado"
+        android:textStyle="normal|bold"
+        android:text="@string/Nome"
+        android:textSize="18sp"
+        android:layout_marginTop="15dp"
+        android:layout_toEndOf="@+id/circl_img_viw_imagem_perfil" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/txt_tipo_cadastrado"
+        android:text="@string/Tipo"
+        android:layout_below="@+id/txt_nome_cadastrado"
+        android:layout_toEndOf="@+id/circl_img_viw_imagem_perfil" />
 
 
 

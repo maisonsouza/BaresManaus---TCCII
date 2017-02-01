@@ -7,23 +7,23 @@ import android.os.Parcelable;
  * Created by maiso on 14/01/2017.
  */
 
-public class AndroidOS implements Parcelable {
-    public String nome_produto;
+public class Pratos implements Parcelable {
+    public String nome_prato;
     public String preço;
     public int sdk_int;
-    public String description;
+    public String descricao;
     public String year;
     public String image_url;
     public String icon_url;
 
-    public AndroidOS() {
+    public Pratos() {
     }
 
-    private AndroidOS(Parcel in) {
-        nome_produto = in.readString();
+    private Pratos(Parcel in) {
+        nome_prato = in.readString();
         preço = in.readString();
         sdk_int = in.readInt();
-        description = in.readString();
+        descricao = in.readString();
         year = in.readString();
         image_url = in.readString();
         icon_url = in.readString();
@@ -36,24 +36,24 @@ public class AndroidOS implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
-        dest.writeString(nome_produto);
+        dest.writeString(nome_prato);
         dest.writeString(preço);
         dest.writeInt(sdk_int);
-        dest.writeString(description);
+        dest.writeString(descricao);
         dest.writeString(year);
         dest.writeString(image_url);
         dest.writeString(icon_url);
     }
 
-    public static final Creator<AndroidOS> CREATOR = new Creator<AndroidOS>() {
+    public static final Creator<Pratos> CREATOR = new Creator<Pratos>() {
         @Override
-        public AndroidOS createFromParcel(Parcel source) {
-            return new AndroidOS(source);
+        public Pratos createFromParcel(Parcel source) {
+            return new Pratos(source);
         }
 
         @Override
-        public AndroidOS[] newArray(int size) {
-            return new AndroidOS[size];
+        public Pratos[] newArray(int size) {
+            return new Pratos[size];
         }
     };
 }

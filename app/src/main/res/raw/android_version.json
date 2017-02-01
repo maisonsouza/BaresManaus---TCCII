@@ -1,82 +1,82 @@
 
 [
 {
-"nome_produto": "Pizza de Romeu e Julieta",
+"nome_prato": "Pizza de Romeu e Julieta",
 "preço": "R$ 24,90",
 "sdk_int": 4,
-"description": "Depois de uma deliciosa pizza salgada, nada como finalizar a refeição como uma versão doce. A pizza Romeu e Julieta, que combina goiabada com queijo, é uma opção gostosa e de preparo simples.",
+"descricao": "Depois de uma deliciosa pizza salgada, nada como finalizar a refeição como uma versão doce. A pizza Romeu e Julieta, que combina goiabada com queijo, é uma opção gostosa e de preparo simples.",
 "year": "Preço: ",
 "image_url":"http://www.mulher.com.br/sites/itodas.com.br/files/styles/big-featured/public/field/image/pizza-romeu-julieta.jpg?itok=razxlUul",
 "icon_url":""
 },
 {
-"nome_produto": "Lasanha",
+"nome_prato": "Lasanha",
 "preço": "R$ 16,00",
 "sdk_int": 5,
-"description": "A alimentação composta de massas é muito comum na Itália, de onde esta iguaria é originária, sendo tão comum quanto a pizza. Fatias de massa, molho de tomate, carne temperada e complementos agrada a praticamente todos os paladares.",
+"descricao": "A alimentação composta de massas é muito comum na Itália, de onde esta iguaria é originária, sendo tão comum quanto a pizza. Fatias de massa, molho de tomate, carne temperada e complementos agrada a praticamente todos os paladares.",
 "year": "Preço: ",
 "image_url":"https://2.bp.blogspot.com/-KKZpz_oNzC0/UBCZutzdmEI/AAAAAAAAB88/w5l4DeNkRfw/s1600/lasanha+74.jpg",
 "icon_url":""
 },
 {
-"nome_produto": "Caranguejo com Manteiga de Alho",
+"nome_prato": "Caranguejo com Manteiga de Alho",
 "preço": "R$ 56,00",
 "sdk_int": 6,
-"description": "Muito simples, o caranguejo é mergulhado num molho à base de manteiga de alho, que ao adentrar o casco deixa a carne com um sabor todo especial.",
+"descricao": "Muito simples, o caranguejo é mergulhado num molho à base de manteiga de alho, que ao adentrar o casco deixa a carne com um sabor todo especial.",
 "year": "Preço: ",
 "image_url":"https://1.bp.blogspot.com/-kBOqrxdcO4k/UBCaJzSaPwI/AAAAAAAAB9M/HWRF6CAMurk/s1600/carangueijo_na_manteiga-thumb.jpg",
 "icon_url":""
 },
 {
-"nome_produto": "Kebav",
+"nome_prato": "Kebav",
 "preço": "R$ 66,00",
 "sdk_int": 7,
-"description": "Esse espetinho iraniano é uma maneira saudável e rápida de se alimentar bem. Ele é composto de pequenos pedaços de carne intercalada com vegetais.",
+"descricao": "Esse espetinho iraniano é uma maneira saudável e rápida de se alimentar bem. Ele é composto de pequenos pedaços de carne intercalada com vegetais.",
 "year": "Preço: ",
 "image_url":"https://1.bp.blogspot.com/-7Ddqy-3Dnu0/Vl2Ob6k9AlI/AAAAAAAARyQ/H1p7zNsZSS0/s1600/kebab-.jpg",
 "icon_url":""
 },
 {
-"nome_produto": "Nam Tok Moo",
+"nome_prato": "Nam Tok Moo",
 "preço": "R$ 156,00",
 "sdk_int": 8,
-"description": "Uma combinação exótica de carne de porco grelhada combinada com menta, suco de limão, chili, cebolinha verde, molho de peixe e arroz tostado.",
+"descricao": "Uma combinação exótica de carne de porco grelhada combinada com menta, suco de limão, chili, cebolinha verde, molho de peixe e arroz tostado.",
 "year": "Preço: ",
 "image_url":"https://2.bp.blogspot.com/-0uxSV3Tknd8/UBCa0dRgOHI/AAAAAAAAB9k/lv7iIIBM7KY/s1600/nam-tok-moo-.jpg",
 "icon_url":""
 },
 {
-"nome_produto": "Frango Muamba",
+"nome_prato": "Frango Muamba",
 "preço": "R$ 16,50",
 "sdk_int": 11,
-"description": "Frango, alho, chili, pimenta, tomate, sal, quiabo, manteiga de palma e de amendoim em algumas vertentes.",
+"descricao": "Frango, alho, chili, pimenta, tomate, sal, quiabo, manteiga de palma e de amendoim em algumas vertentes.",
 "year": "Preço: ",
 "image_url":"https://1.bp.blogspot.com/-GV90GhFbjdY/UBCcsBZ_i5I/AAAAAAAAB-M/QsiYnHU2fAw/s1600/frango-muamba-.png",
 "icon_url":""
 },
 {
-"nome_produto": " Massaman Curry",
+"nome_prato": " Massaman Curry",
 "preço": "R$ 89,00",
 "sdk_int": 14,
-"description": "Esse prato tem toques apimentados e doces, combinados com leite de coco e com muito curry.",
+"descricao": "Esse prato tem toques apimentados e doces, combinados com leite de coco e com muito curry.",
 "year": "Preço: ",
 "image_url":"https://3.bp.blogspot.com/-OatZETPGFgg/UBCdf6RXifI/AAAAAAAAB-U/M_vhxH8tS6A/s1600/massaman-curry-.jpg",
 "icon_url":""
 },
 {
-"nome_produto": "Pato de Pequim",
+"nome_prato": "Pato de Pequim",
 "preço": "R$ 52,00",
 "sdk_int": 15,
-"description": "O segredo do prato é o xarope de maltose que envolve a pele do pato.",
+"descricao": "O segredo do prato é o xarope de maltose que envolve a pele do pato.",
 "year": "Preço: ",
 "image_url":"https://3.bp.blogspot.com/-GpAbNJslXVM/UBCebdLPqLI/AAAAAAAAB-c/qaCfnz3ACpI/s1600/PatoPequim-Pato.jpg",
 "icon_url":""
 },
 {
-"nome_produto": "Feijoada",
+"nome_prato": "Feijoada",
 "preço": "R$ 34,80",
 "sdk_int": 19,
-"description": "Não podia ser diferente, esse prato simples com origem nas senzalas do Rio de Janeiro, é apreciado por diferentes esferas sociais, sendo muito saboroso e apreciado por todos os cantos.",
+"descricao": "Não podia ser diferente, esse prato simples com origem nas senzalas do Rio de Janeiro, é apreciado por diferentes esferas sociais, sendo muito saboroso e apreciado por todos os cantos.",
 "year": "Preço: ",
 "image_url":"https://1.bp.blogspot.com/-fimyDUS-2uY/UBCexQmKFdI/AAAAAAAAB-s/bptIXW09Mxs/s1600/feijoada-9071.jpg",
 "icon_url":""
