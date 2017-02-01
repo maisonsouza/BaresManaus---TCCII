@@ -94,6 +94,7 @@ public class Cadastros extends AppCompatActivity {
                 dbhelper.close();
                 //Encerra a conexão com o banco
                 Toast.makeText(Cadastros.this, usuario.getNome() + " Excluido com sucesso ", Toast.LENGTH_SHORT).show();
+                carregaLista();
                 return false;
             }
         });

@@ -23,7 +23,7 @@ import butterknife.ButterKnife;
 
 public class ViewerActivity extends AppCompatActivity {
 
-    public static final String EXTRA_OS = "extra_os_version";
+    public static final String EXTRA_OS = "pratos_cadastrados_no_sistema";
 
     @BindView(R.id.toolbar)
     Toolbar mToolbar;
@@ -42,7 +42,7 @@ public class ViewerActivity extends AppCompatActivity {
     @BindView(R.id.position)
     TextView mPosition;
 
-    private Pratos mOS;
+    private Pratos pratos;
     private SlidrConfig mConfig;
 
     @Override
@@ -76,19 +76,19 @@ public class ViewerActivity extends AppCompatActivity {
         setSupportActionBar(mToolbar);
         getSupportActionBar().setTitle("");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        mOS = getIntent().getParcelableExtra(EXTRA_OS);
-        if(savedInstanceState != null) mOS = savedInstanceState.getParcelable(EXTRA_OS);
+        pratos = getIntent().getParcelableExtra(EXTRA_OS);
+        if(savedInstanceState != null) pratos = savedInstanceState.getParcelable(EXTRA_OS);
 
         // Set layout contents
-        mTitle.setText(mOS.nome_prato);
-        mDescription.setText(mOS.descricao);
-        mDate.setText(String.valueOf(mOS.year));
-        mVersion.setText(mOS.preço);
-        mSdk.setText(String.valueOf(mOS.sdk_int));
+        mTitle.setText(pratos.nome_prato);
+        mDescription.setText(pratos.descricao);
+        mDate.setText(String.valueOf(pratos.year));
+        mVersion.setText(pratos.preço);
+        mSdk.setText(String.valueOf(pratos.sdk_int));
 
         // Load header image
         Glide.with(this)
-                .load(mOS.image_url)
+                .load(pratos.image_url)
                 .crossFade()
                 .into(mCover);
     }
@@ -112,6 +112,6 @@ public class ViewerActivity extends AppCompatActivity {
     @Override
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
-        outState.putParcelable(EXTRA_OS, mOS);
+        outState.putParcelable(EXTRA_OS, pratos);
     }
 }

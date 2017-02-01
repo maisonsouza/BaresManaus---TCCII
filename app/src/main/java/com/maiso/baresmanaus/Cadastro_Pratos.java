@@ -8,9 +8,13 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
+import com.ftinc.kit.adapter.BetterRecyclerAdapter;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.maiso.baresmanaus.adapter.PratosAdapter;
+import com.maiso.baresmanaus.dao.PratosDAO;
+import com.maiso.baresmanaus.helper.DBHelper;
+import com.maiso.baresmanaus.helper.PratosHelper;
 import com.maiso.baresmanaus.modelo.Pratos;
 
 import java.io.InputStream;
@@ -20,7 +24,6 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import com.ftinc.kit.adapter.BetterRecyclerAdapter;
 
 
 public class Cadastro_Pratos extends AppCompatActivity {
@@ -35,6 +38,7 @@ public class Cadastro_Pratos extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pratos);
+
         ButterKnife.bind(this);
         initRecycler();
         botao_flutuante_adicionar_prato = (FloatingActionButton) findViewById(R.id.fltng_action_bttn_adicionar_prato);
@@ -51,8 +55,13 @@ public class Cadastro_Pratos extends AppCompatActivity {
      * Inicializa o Recycler
      */
     private void initRecycler(){
-        mAdapter = new PratosAdapter();
-        mAdapter.addAll(getData());
+
+        DBHelper dbhelper = new DBHelper(this);
+        PratosHelper helper = new PratosHelper(this,this);
+        PratosDAO dao = new PratosDAO(dbhelper);
+        List<Pratos> pratos_cadastrados = dao.buscaPratos();
+        dbhelper.close();
+        mAdapter = new PratosAdapter(pratos_cadastrados,this);
         mRecycler.setAdapter(mAdapter);
         mRecycler.setLayoutManager(new LinearLayoutManager(this));
         mAdapter.setOnItemClickListener(new BetterRecyclerAdapter.OnItemClickListener<Pratos>() {
@@ -67,13 +76,14 @@ public class Cadastro_Pratos extends AppCompatActivity {
     }
 
     private List<Pratos> getData(){
-        InputStream is = getResources().openRawResource(R.raw.android_version);
+        InputStream is = getResources().openRawResource(R.raw.pratos);
         InputStreamReader isr = new InputStreamReader(is);
         Gson gson = new Gson();
         Type listType = new TypeToken<List<Pratos>>(){}.getType();
         List<Pratos> oss = gson.fromJson(isr, listType);
         return oss;
     }
+
 
 
 

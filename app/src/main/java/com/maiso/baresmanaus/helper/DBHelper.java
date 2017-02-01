@@ -19,8 +19,10 @@ public class DBHelper extends SQLiteOpenHelper {
 
     private static final String TABELA_USUARIOS = "Usuarios";
     private static final String TABELA_SUGESTOES = "Sugestoes";
+    private static final String TABELA_PRATOS = "Pratos";
+
     private static String DATABASE = "DB";
-    private static  int VERSAO = 15;
+    private static  int VERSAO = 16;
     private static String TABELA;
 
 
@@ -32,6 +34,10 @@ public class DBHelper extends SQLiteOpenHelper {
             + "id INTEGER PRIMARY KEY AUTOINCREMENT, " + "autor TEXT, "
             + "sugestao TEXT, " + "nota_atendimento REAL" + ");";
 
+    String sql_pratos = "CREATE TABLE " + TABELA_PRATOS + " ("
+            + "id INTEGER PRIMARY KEY AUTOINCREMENT, " + "nome_prato TEXT, "
+            + "descricao TEXT UNIQUE NOT NULL, " + "preco TEXT, " + "local_da_iamgem TEXT" +");";
+
     public DBHelper(Context context) {
         super(context, DATABASE, null, VERSAO);
 
@@ -42,6 +48,7 @@ public class DBHelper extends SQLiteOpenHelper {
 
         db.execSQL(sql_usuarios);
         db.execSQL(sql_sugestoes);
+        db.execSQL(sql_pratos);
     }
 
     @Override
@@ -49,6 +56,7 @@ public class DBHelper extends SQLiteOpenHelper {
 
         db.execSQL("DROP TABLE IF EXISTS " + TABELA_USUARIOS);
         db.execSQL("DROP TABLE IF EXISTS " + TABELA_SUGESTOES);
+        db.execSQL("DROP TABLE IF EXISTS " + TABELA_PRATOS);
         onCreate(db);
 
     }

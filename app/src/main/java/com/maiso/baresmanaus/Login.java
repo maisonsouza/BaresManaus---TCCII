@@ -43,6 +43,11 @@ public class Login extends AppCompatActivity {
 
             @Override
             public void onClick(View view) {
+                Intent vaipraModulos = new Intent(Login.this, Modulos.class);
+                vaipraModulos.putExtra("login", username);
+                startActivity(vaipraModulos);
+
+
                 verificaLogin();
             }
         });
